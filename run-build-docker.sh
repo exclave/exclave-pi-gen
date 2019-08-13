@@ -1,18 +1,15 @@
 #!/bin/sh
 
-extra_config="config"
-git checkout config
-
-sed -i '/IMG_VERSION=/d' config
-sed -i '/IMG_FILENAME=/d' config
-sed -i '/ZIP_FILENAME=/d' config
+source ./config
+extra_config="config.extra"
 
 IMG_VERSION="$(git describe --tags)"
 
-source ./config
+rm -f "${extra_config}"
 echo "IMG_VERSION=${IMG_VERSION}" >> "${extra_config}"
 echo "IMG_FILENAME=${IMG_NAME}-${IMG_VERSION}" >> "${extra_config}"
 echo "ZIP_FILENAME=${IMG_NAME}-${IMG_VERSION}" >> "${extra_config}"
-source ./config
+
+cat config.base "${extra_config}" > config
 
 ./build-docker.sh 2>&1 | tee build.log

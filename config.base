@@ -1,8 +1,8 @@
-IMG_NAME=Fomu-Dev
+IMG_NAME=Exclave
 ENABLE_SSH=1
-STAGE_LIST='stage0 stage1-fomu stage2-fomu'
-FIRST_USER_NAME=fomu
-FIRST_USER_PASS=fomudev
+STAGE_LIST='stage0 stage1-exclave stage2-exclave'
+FIRST_USER_NAME=exclave
+FIRST_USER_PASS=exclavedev
 
 # Uncomment this if a build fails and you'd like to try again
 #CONTINUE=1
@@ -12,6 +12,3 @@ FIRST_USER_PASS=fomudev
 #   docker run --rm --privileged --volumes-from=pigen_work -it pi-gen /bin/bash
 # (Run 'dpkg-reconfigure qemu-user-static' as the first command)
 #PRESERVE_CONTAINER=1
-IMG_VERSION=v1.2.7-fomu
-IMG_FILENAME=Fomu-Dev-v1.2.7-fomu
-ZIP_FILENAME=Fomu-Dev-v1.2.7-fomu
